@@ -1,11 +1,220 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <title>Ma première page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page HTML responsive">
+  <title>Page responsive</title>
+
+  <style>
+    /* Réinitialisation */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background: #f5f7fa;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(90%, 1100px);
+      margin: 0 auto;
+    }
+
+    /* En-tête */
+    header {
+      background: #1e293b;
+      color: white;
+      padding: 1rem 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* Section principale */
+    .hero {
+      padding: 5rem 0;
+      text-align: center;
+      background: linear-gradient(135deg, #0ea5e9, #2563eb);
+      color: white;
+    }
+
+    .hero h1 {
+      margin-bottom: 1rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.4rem;
+      border-radius: 6px;
+      background: white;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #e0f2fe;
+    }
+
+    /* Cartes */
+    .features {
+      padding: 4rem 0;
+    }
+
+    .features h2 {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      padding: 1.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h3 {
+      margin-bottom: 0.8rem;
+      color: #2563eb;
+    }
+
+    /* Pied de page */
+    footer {
+      padding: 1.5rem 0;
+      text-align: center;
+      background: #1e293b;
+      color: white;
+    }
+
+    /* Responsive tablette et mobile */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 3.5rem 1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <h1>Bienvenue sur ma page web</h1>
-    <p>Ceci est un paragraphe de texte.</p>
+
+  <header>
+    <div class="container navbar">
+      <a href="#" class="logo">MonSite</a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="accueil" class="hero">
+      <div class="container">
+        <h1>Bienvenue sur mon site</h1>
+        <p>
+          Une page moderne, claire et adaptée aux ordinateurs,
+          tablettes et smartphones.
+        </p>
+        <a href="#services" class="btn">Découvrir</a>
+      </div>
+    </section>
+
+    <section id="services" class="features">
+      <div class="container">
+        <h2>Nos services</h2>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Design moderne</h3>
+            <p>
+              Une interface agréable avec une mise en page simple et efficace.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Responsive</h3>
+            <p>
+              Le contenu s'adapte automatiquement à toutes les tailles d'écran.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Performance</h3>
+            <p>
+              Un code léger et facile à modifier pour vos futurs projets.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <p>&copy; 2026 MonSite. Tous droits réservés.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
+
