@@ -3,110 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="En chemin de foi — un espace pour avancer, prier et grandir dans la foi.">
-  <title>En chemin de foi | Avancer ensemble</title>
+  <meta name="description" content="En chemin de foi — un espace pour avancer, prier et partager.">
+  <title>En chemin de foi</title>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
-
     :root {
-      --ink: #25231f;
-      --muted: #706a60;
-      --cream: #fbf8f1;
-      --paper: #fffdf9;
       --wine: #6f263d;
-      --wine-dark: #4e1a2b;
-      --gold: #c5964d;
-      --line: #e9e1d4;
-      --shadow: 0 20px 55px rgba(68, 45, 24, 0.1);
+      --dark-wine: #4e1a2b;
+      --cream: #fbf8f1;
+      --text: #302b28;
+      --muted: #706a60;
+      --line: #e5ddd2;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       background: var(--cream);
-      color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      font-family: Arial, sans-serif;
       line-height: 1.6;
     }
     a { color: inherit; text-decoration: none; }
-    .container { width: min(1120px, calc(100% - 3rem)); margin: 0 auto; }
+    .container { margin: 0 auto; max-width: 1000px; width: 90%; }
 
     header {
       background: var(--cream);
       border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      padding: 1rem 0;
     }
     .navbar {
       align-items: center;
       display: flex;
       justify-content: space-between;
-      min-height: 78px;
-      gap: 2rem;
+      gap: 1rem;
     }
-    .logo { align-items: center; display: flex; gap: .75rem; font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--wine); }
-    .logo-mark { align-items: center; background: var(--wine); border-radius: 50%; color: #fff; display: flex; font-family: Georgia, serif; font-size: 1.25rem; height: 38px; justify-content: center; width: 38px; }
-    .nav-links { align-items: center; display: flex; gap: 2rem; list-style: none; color: var(--muted); font-size: .9rem; font-weight: 600; }
-    .nav-links a { transition: color .2s ease; }
-    .nav-links a:hover, .nav-links a:focus { color: var(--wine); }
-    .nav-cta { border: 1px solid var(--wine); border-radius: 999px; color: var(--wine); padding: .65rem 1.15rem; }
-    .nav-cta:hover { background: var(--wine); color: #fff; }
+    .logo { color: var(--wine); font-size: 1.25rem; font-weight: bold; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: .95rem; }
+    .nav-links a:hover { color: var(--wine); }
 
-    .hero { overflow: hidden; position: relative; padding: 7.5rem 0 8rem; }
-    .hero::before { background: var(--gold); border-radius: 50%; content: ''; height: 440px; opacity: .12; position: absolute; right: -130px; top: -160px; width: 440px; }
-    .hero::after { border: 1px solid var(--gold); border-radius: 50%; content: ''; height: 280px; opacity: .2; position: absolute; right: -20px; top: -55px; width: 280px; }
-    .hero-content { max-width: 720px; position: relative; z-index: 1; }
-    .eyebrow { align-items: center; color: var(--gold); display: flex; font-size: .75rem; font-weight: 700; gap: .75rem; letter-spacing: .18em; margin-bottom: 1.5rem; text-transform: uppercase; }
-    .eyebrow::before { background: var(--gold); content: ''; height: 1px; width: 38px; }
-    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.15; }
-    h1 { color: var(--wine-dark); font-size: clamp(3rem, 7vw, 5.5rem); letter-spacing: -.04em; max-width: 760px; }
-    .hero p { color: var(--muted); font-size: 1.15rem; margin: 1.75rem 0 2.25rem; max-width: 560px; }
-    .button { background: var(--wine); border: 1px solid var(--wine); border-radius: 999px; color: #fff; display: inline-flex; font-size: .9rem; font-weight: 700; padding: .9rem 1.5rem; transition: all .2s ease; }
-    .button:hover, .button:focus { background: var(--wine-dark); box-shadow: 0 8px 20px rgba(111, 38, 61, .2); transform: translateY(-2px); }
-    .button.secondary { background: transparent; color: var(--wine); margin-left: .75rem; }
-    .button.secondary:hover { background: #f3e9df; box-shadow: none; }
+    .hero {
+      padding: 6rem 0;
+      text-align: center;
+    }
+    .hero h1 {
+      color: var(--dark-wine);
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .hero p { color: var(--muted); font-size: 1.1rem; margin: 0 auto 2rem; max-width: 560px; }
+    .button {
+      background: var(--wine);
+      border-radius: 999px;
+      color: white;
+      display: inline-block;
+      font-weight: bold;
+      padding: .8rem 1.4rem;
+    }
+    .button:hover { background: var(--dark-wine); }
 
-    .intro { background: var(--wine); color: #fff; padding: 4.5rem 0; }
-    .intro-grid { align-items: center; display: grid; gap: 3rem; grid-template-columns: 1.1fr .9fr; }
-    .intro h2 { font-size: clamp(2rem, 4vw, 3.2rem); max-width: 520px; }
-    .intro p { color: #eadde0; max-width: 470px; }
-    .verse { border-left: 1px solid var(--gold); padding-left: 2rem; }
-    .verse blockquote { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-style: italic; line-height: 1.35; }
-    .verse cite { color: #e8c995; display: block; font-size: .8rem; font-style: normal; letter-spacing: .1em; margin-top: 1rem; text-transform: uppercase; }
+    .mission {
+      background: var(--wine);
+      color: white;
+      padding: 3.5rem 0;
+      text-align: center;
+    }
+    .mission h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); margin-bottom: .75rem; }
+    .mission p { color: #f0e4e5; margin: 0 auto; max-width: 600px; }
 
-    .services { padding: 6.5rem 0; }
-    .section-heading { align-items: end; display: flex; justify-content: space-between; gap: 2rem; margin-bottom: 2.5rem; }
-    .section-heading h2 { color: var(--wine-dark); font-size: clamp(2rem, 4vw, 3rem); }
-    .section-heading p { color: var(--muted); max-width: 390px; }
+    .parcours { padding: 5rem 0; }
+    .section-title { color: var(--dark-wine); font-size: 2.2rem; margin-bottom: .5rem; text-align: center; }
+    .section-intro { color: var(--muted); margin: 0 auto 2.5rem; max-width: 550px; text-align: center; }
     .cards { display: grid; gap: 1.25rem; grid-template-columns: repeat(3, 1fr); }
-    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 2rem; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
-    .card:hover { border-color: #d8bd91; box-shadow: var(--shadow); transform: translateY(-5px); }
-    .card-icon { align-items: center; background: #f3e9df; border-radius: 50%; color: var(--wine); display: flex; font-size: 1.25rem; height: 48px; justify-content: center; margin-bottom: 1.5rem; width: 48px; }
-    .card h3 { color: var(--wine-dark); font-size: 1.35rem; margin-bottom: .75rem; }
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .card h3 { color: var(--wine); font-size: 1.25rem; margin-bottom: .5rem; }
     .card p { color: var(--muted); font-size: .95rem; }
 
-    footer { background: #241d1d; color: #fff; padding: 2.5rem 0; }
-    .footer-content { align-items: center; display: flex; justify-content: space-between; gap: 1rem; }
-    footer .logo { color: #fff; }
-    footer .logo-mark { background: var(--gold); color: #241d1d; }
-    footer p { color: #b9aeaa; font-size: .85rem; }
+    footer { background: #241d1d; color: #cfc5c1; padding: 1.5rem 0; text-align: center; }
+    footer .logo { color: white; }
+    footer p { font-size: .85rem; margin-top: .35rem; }
 
-    @media (max-width: 720px) {
-      .container { width: min(100% - 2rem, 560px); }
-      .navbar { min-height: 70px; }
-      .nav-links { gap: .75rem; }
-      .nav-links li:not(:last-child) { display: none; }
-      .nav-cta { padding: .55rem .85rem; }
-      .hero { padding: 5rem 0 5.5rem; }
-      .button { padding: .8rem 1.15rem; }
-      .button.secondary { margin-left: .25rem; }
-      .intro-grid, .cards { grid-template-columns: 1fr; }
-      .intro-grid { gap: 2.5rem; }
-      .verse { padding-left: 1.25rem; }
-      .section-heading, .footer-content { align-items: flex-start; flex-direction: column; }
-      .services { padding: 4.5rem 0; }
+    @media (max-width: 700px) {
+      .navbar { align-items: flex-start; flex-direction: column; }
+      .nav-links { gap: 1rem; }
+      .hero { padding: 4rem 0; }
+      .cards { grid-template-columns: 1fr; }
+      .parcours { padding: 4rem 0; }
     }
   </style>
 </head>
@@ -114,12 +103,12 @@
 <body>
   <header>
     <div class="container navbar">
-      <a href="#accueil" class="logo"><span class="logo-mark" aria-hidden="true">✦</span>En chemin de foi</a>
+      <a href="#accueil" class="logo">En chemin de foi</a>
       <nav aria-label="Navigation principale">
         <ul class="nav-links">
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#parcours">Le parcours</a></li>
-          <li><a class="nav-cta" href="#contact">Nous contacter</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -127,53 +116,37 @@
 
   <main>
     <section id="accueil" class="hero">
-      <div class="container hero-content">
-        <p class="eyebrow">Un chemin à vivre ensemble</p>
-        <h1>Avancer dans la foi, un pas après l'autre.</h1>
-        <p>Un espace de partage, de prière et d'espérance pour celles et ceux qui cherchent à donner du sens à leur chemin.</p>
-        <a href="#parcours" class="button">Découvrir le parcours&nbsp; →</a>
-        <a href="#contact" class="button secondary">Échanger avec nous</a>
-      </div>
-    </section>
-
-    <section class="intro" aria-label="Notre mission">
-      <div class="container intro-grid">
-        <div>
-          <p class="eyebrow">Notre mission</p>
-          <h2>Prendre le temps d'écouter ce qui compte vraiment.</h2>
-        </div>
-        <div class="verse">
-          <blockquote>« Ta parole est une lampe à mes pieds, une lumière sur mon sentier. »</blockquote>
-          <cite>Psaume 119, 105</cite>
-        </div>
-      </div>
-    </section>
-
-    <section id="parcours" class="services">
       <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Le parcours</p>
-            <h2>Des ressources pour grandir</h2>
-          </div>
-          <p>Chacun avance à son rythme. Retrouvez des repères simples pour nourrir votre foi au quotidien.</p>
-        </div>
+        <h1>Avancer dans la foi,<br>un pas après l'autre.</h1>
+        <p>Un espace simple de partage, de prière et d'espérance pour donner du sens à votre chemin.</p>
+        <a href="#parcours" class="button">Découvrir le parcours</a>
+      </div>
+    </section>
+
+    <section class="mission">
+      <div class="container">
+        <h2>Un chemin à vivre ensemble</h2>
+        <p>« Ta parole est une lampe à mes pieds, une lumière sur mon sentier. »<br><strong>Psaume 119, 105</strong></p>
+      </div>
+    </section>
+
+    <section id="parcours" class="parcours">
+      <div class="container">
+        <h2 class="section-title">Des ressources pour grandir</h2>
+        <p class="section-intro">Retrouvez des repères simples pour nourrir votre foi au quotidien.</p>
 
         <div class="cards">
           <article class="card">
-            <div class="card-icon" aria-hidden="true">✧</div>
             <h3>Méditer</h3>
-            <p>Des textes et des temps de silence pour ouvrir un espace intérieur et accueillir la Parole.</p>
+            <p>Des textes et des temps de silence pour accueillir la Parole.</p>
           </article>
           <article class="card">
-            <div class="card-icon" aria-hidden="true">♡</div>
             <h3>Prier</h3>
-            <p>Des prières pour déposer vos joies, vos questions et vos espoirs, simplement.</p>
+            <p>Des prières pour déposer vos joies, vos questions et vos espoirs.</p>
           </article>
           <article class="card">
-            <div class="card-icon" aria-hidden="true">♧</div>
             <h3>Partager</h3>
-            <p>Un chemin fraternel où chaque histoire peut être accueillie avec bienveillance.</p>
+            <p>Un chemin fraternel où chaque histoire est accueillie avec bienveillance.</p>
           </article>
         </div>
       </div>
@@ -181,8 +154,8 @@
   </main>
 
   <footer id="contact">
-    <div class="container footer-content">
-      <a href="#accueil" class="logo"><span class="logo-mark" aria-hidden="true">✦</span>En chemin de foi</a>
+    <div class="container">
+      <a href="#accueil" class="logo">En chemin de foi</a>
       <p>© 2026 En chemin de foi · Tous droits réservés</p>
     </div>
   </footer>
